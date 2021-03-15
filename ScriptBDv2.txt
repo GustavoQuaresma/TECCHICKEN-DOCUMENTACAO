@@ -1,0 +1,64 @@
+create database tecchicken;
+
+use tecchicken;
+
+create table cliente(
+	idCliente int primary key auto_increment,
+        Nome varchar (40) NOT NULL,
+	CPF char (11) NOT NULL,
+        Telefone varchar (50) NOT NULL,
+        Email varchar (50) NOT NULL,
+        senha varchar (50) NOT NULL
+);
+
+
+        
+create table sensor (
+
+		idSensor int primary key auto_increment,
+        tipoSensor varchar(10), 
+        temperatura varchar(20),
+        diaTemp datetime default current_timestamp,
+        
+				check (tipoSensor = 'LM35')
+        );
+        
+        
+create table granja(
+
+		idGranja int primary key auto_increment,
+        logradouro varchar (50),
+        complemento varchar (50),
+		cidade varchar (40),
+        cep char (8),
+        estado varchar (40)
+);
+
+			insert into cliente values 
+            (null,'João Silva','45120114785','11 - 958412565','joaosilva@gmail.com','102030'),
+            (null,'Mariana','50007415245','11 - 965201532','mariana@gmail.com','212223'),
+            (null,'Marcelo Lima','72185844410','11 - 972065128','marcelolima@gmail.com','424344');
+            
+            
+            insert into sensor (idSensor, tipoSensor, temperatura) values
+            (null, 'LM35', '21º'),
+            (null, 'LM35', '18º'),
+            (null, 'LM35', '30º');
+            
+            
+            insert into granja values 
+            (null, 'Marques', 'Rua', 'São Paulo', '08055854', 'São Paulo' ),
+            (null, 'Taquaras', 'Rua', 'São Paulo', '08047842', 'Iguape' ),
+            (null, 'Bagdá', 'Rua', 'Belo Horizonte', '08014785', 'Minas Gerais' );
+          
+          
+          select * from cliente;
+          select * from sensor;
+		  select * from granja;
+          
+		
+            
+            
+            
+            
+            

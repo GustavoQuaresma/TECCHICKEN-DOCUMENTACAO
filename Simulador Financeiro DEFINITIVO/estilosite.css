@@ -1,0 +1,27 @@
+.DivLogoTipo {
+    margin-left: 38%;
+    margin-right: 38%; 
+    margin-top: 5%; 
+}
+
+.stylePlanoMensalImagemOnClick {
+    
+    position:relative;
+    border-width:2px;
+    height: 280px;
+    width: 280px;
+    margin-left: 29%;
+    float: left;
+}
+
+.stylePlanoAnualImagemOnClick {
+    
+    position: relative;
+    border-width:2px;
+    margin-left: 5%;
+    width: 280px;
+    height: 280px;
+    left:0px;
+}
+
+

@@ -1,0 +1,132 @@
+* {
+    height: 100%;
+    width: 100%;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url('../imgs/background_institucional.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fundo_Logo {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.60);
+    text-align: center;
+}
+
+#imgLogo{
+    position: absolute;
+    height: 90px;
+    width: 90px;
+
+    top: 35px;
+    right: 10px;
+    left: 40px;
+}
+
+nav {
+    position: absolute;
+    margin-top: 59px;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav_button {
+    margin-top: 20px;
+
+    height: 50px;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+    border: none;
+}
+
+.nav_button_equipe {
+    margin-top: 1px;
+    height: 50px;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(255, 255, 255, 0.80);
+    font-size: 2em;
+    text-decoration: none;
+    border: none;
+    
+    
+}
+
+.nav_button_equipe:hover {
+    transition: 0.2s;
+    color: rgb(62, 89, 112);
+}
+
+
+
+.nav_button:hover {
+    transition: 0.2s;
+    color: rgb(44, 83, 117);
+}
+
+#button_login {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+
+    height: 50px;
+    width: 60px;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 22px;
+
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.div_equipe {
+    display: inline-block;
+    border: 12px solid;
+    color: white;
+    width: 160px;
+    height: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    margin-left: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.borda-cargo {
+    background-color: Grey;
+    height: 70px;
+    width: 100%;
+    margin-top: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+}
+
+.borda-nome{
+
+    display: block;
+    border: 1px solid;
+    color: white;
+    height: 100px;
+    width: 500px;
+
+}

@@ -1,0 +1,159 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: rgba(204, 204, 204, 0.671);
+
+    height: 100%;
+    width: 100%;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.topo{
+    height: 105px;
+    width: 100%;
+
+    background-color: black;
+    text-align: center;
+}
+
+.logoHephaestos{
+    height: 80%;
+    width: 90px;
+
+    padding-top: 8px;
+}
+
+h2{
+    margin-top: 5px;
+    color: rgb(204, 204, 204);
+}
+
+.package1{
+    float: left;
+
+    height: 220px;
+    width: 400px;
+
+    border-radius: 10px;
+
+    background-color: Black;
+    opacity: 0.8;
+
+    color: rgb(204, 204, 204);
+
+    margin-left: 230px;
+
+    padding: 10px;
+}
+
+.package2{
+    float: left;
+
+    height: 220px;
+    width: 400px;
+    
+    border-radius: 10px;
+
+    background-color: Black;
+    opacity: 0.8;
+
+    color: rgb(204, 204, 204);
+    
+    margin-left: 50px;
+    padding: 10px;
+}
+
+input{
+    height: 35px;
+    width: 80%;
+    border-radius: 5px;
+
+    margin-bottom: 10px;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.conteudo{
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#analizar{
+    height: 50px;
+    width: 30%;
+    border-radius: 10px;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    margin-top: 50px;
+    transition: 0.5s;
+}
+
+#analizar:hover{
+    transition: 0.5s;
+    background-color: rgb(22, 78, 78);
+    color: white;
+}
+
+.contentAnalise{
+    height: auto;
+    width: 80%;
+    background-color: Black;
+    opacity: 0.8;
+
+    border-radius: 10px;
+
+    margin-top: 40px;
+    margin-bottom: 50px;
+    margin-left: 130px;
+}
+
+#resultAnalise{
+    position: relative;
+    height: auto;
+    width: 75%;
+
+    color: white;
+
+    font-size: 2em;
+    text-align: center;
+
+    margin-left: 11%;
+
+    border: 1px solid;
+}
+
+#nocoes{
+    text-align: justify;
+    padding: 20px;
+}
+
+.container{
+    overflow: hidden;
+    height: 50px;
+    width: 100%;
+
+    background-color: white;
+}
+
+#precoCompra{
+    height: 100%;
+    float: left;
+
+    background-color: red;
+}
+
+#precoVenda{
+    height: 100%;
+    float: left;
+
+    background-color: green;
+}

@@ -1,0 +1,107 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url('../imgs/background_institucional.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+span{
+    float:right; 
+ 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px; 
+    color: white;
+    text-align: justify;
+
+    margin-top: 20px; 
+}
+
+nav {
+    position: absolute;
+    margin-top: 40px;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav_button {
+    margin-top: 20px;
+
+    height: 50px;
+    width: 150px;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+
+    border: none;
+}
+
+.fundo_Logo {
+    height: 1000px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.80);
+}
+
+.nav_button:hover {
+    transition: 0.2s;
+    color: rgb(44, 83, 117);
+}
+
+#button_login {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+
+    height: 50px;
+    width: 60px;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 22px;
+
+    border: 1px solid;
+    border-radius: 10px; 
+}
+
+#imgLogo{
+    position: absolute;
+    height: 90px;
+    width: 90px;
+
+    top: 35px;
+    right: 10px;
+    left: 40px;
+}
+
+.containerEmpresa{
+    height: 170px;
+    width: 500px;
+
+    background-color: rgba(70, 70, 70, 0.767);
+    padding: 10px;
+
+    border-radius: 10px;
+
+    margin-top: 50px;
+    margin-left: 8%;
+}
+
+#imgEmpresa{
+    height: 100%;
+    width: 180px;
+
+}

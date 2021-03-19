@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="../imgs/logoBrancoEmpresa.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\CSS\cadastro.css">
+
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <section class="fundo_Logo">
+        <nav>
+            <br>
+            <a href="index.html" onmouseover="imgConfig()" onmouseout="imgPadrao()">
+                <img id="imgLogo" src="../imgs/logoBrancoEmpresa.png" alt="Imagem logotipo da empresa">
+            </a>
+        </nav>
+
+        <h1>Cadastro</h1>
+        <div class="containerCadastro">
+            
+            <div class="primeiraParteCadastro">
+
+                <input id="nomeCompleto" type="text" placeholder="Nome completo">
+                <br>
+                <br>
+                <input id="cpf" type="text" placeholder="CPF">
+                <input id="dataNascto" placeholder="Data de Nascimento" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                <br>
+                <br>
+                <br>
+                <input id="email" type="text" placeholder="Email">
+                <br>
+                <input id="senha" type="password" placeholder="Senha">
+                <input id="confirmSenha" type="password"  placeholder="Confime sua senha"><br>
+
+            </div>
+
+            <div class="segundaParteCadastro">
+                
+                <input id="estado" type="text" placeholder="Estado">
+                <br>
+                <br>
+                <input id="cidade" type="text" placeholder="Cidade">
+                <br>
+                <input id="bairro" type="text" placeholder="Bairro">
+                <input id="cep" type="text" placeholder="CEP">
+                <br>
+                <br>
+                <input id="rua" type="text" placeholder="Rua">
+                <input id="numero" type="text" placeholder="Numero">
+                
+            </div>
+
+        </div>
+
+        <a href="login.html"><button id="button_cadastro">Cadastrar</button></a>
+            
+    </section>
+</body>
+</html>
+
+<script>
+    function imgConfig(){
+        var img = document.getElementById('imgLogo');
+
+        img.setAttribute('src', '../imgs/logoOriginalEmpresa.png')
+    }
+
+    function imgPadrao(){
+        var img = document.getElementById('imgLogo');
+
+        img.setAttribute('src', '../imgs/logoBrancoEmpresa.png')
+    }
+
+</script>

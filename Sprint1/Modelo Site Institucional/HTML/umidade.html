@@ -1,0 +1,165 @@
+
+<!doctype html>
+<html>
+
+<head>
+	<title>Umidade</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}	
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: rgba(204, 204, 204, 0.671);
+
+    height: 100%;
+    width: 100%;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.topo{
+    height: 105px;
+    width: 100%;
+
+    background-color: black;
+    text-align: center;
+}
+
+.logoHephaestos{
+    height: 80%;
+    width: 90px;
+
+    padding-top: 8px;
+}
+	</style>
+</head>
+
+<body>
+
+	<div class="topo">
+        <a href="index.html"><img src="../imgs/logoBrancoEmpresa.png" alt="" class="logoHephaestos"></a>
+    </div>
+	<br>
+	<br>
+	
+	<section>
+		<h2 style="text-align: center;">Umidade Atual: <label id='average'>0.00%</label></h2>
+		<h2 style="text-align: center;">Umidade por Hora <label id='averageHour'>0.00%</label></h2>
+	</section>
+	<section style="width:100%">
+		<canvas id="chart"></canvas>
+	<section>
+	<script>
+
+		var context = document.getElementById("chart").getContext("2d");
+		context.canvas.width = 1000;
+		context.canvas.height = 300;
+        
+        var configuration = {
+			type: 'line',
+			data: {
+				datasets: [{
+					label: "Umidade x Time",
+					type: 'line',
+					backgroundColor: ['rgba(131,111,255, 0.5)'],
+					borderColor: ['#836FFF'], 
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						//type: 'value',
+						distribution: 'series',
+                        ticks: {
+							beginAtZero:true,
+							maxticksLimit: 5
+                        }
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Umidade'
+                        },
+                        ticks: {
+							beginAtZero:true,
+							suggestedMin: 0,
+							suggestedMax: 100
+                        }
+					}]
+				},
+				animation: {
+					duration: 0
+				}
+			}
+        };
+        
+		var chart = new Chart(context, configuration);
+
+        //Função para obter os dados de temperatura do server
+        //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+        
+        //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+        //hora de montar/atualizar o gráfico
+        this.lastIndexTemp = 0;
+        this.time = 0;
+
+        function get_data(){
+
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/api', false);
+            http.send(null);        
+			
+            var obj = JSON.parse(http.responseText);
+			console.log(obj)
+            if (obj.data.length == 0){
+                return;
+            }
+
+            var _lastIndexTemp = this.lastIndexTemp;
+            this.lastIndexTemp = obj.data.length;
+            listTemp = obj.data.slice(_lastIndexTemp);
+
+            listTemp.forEach(data => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10){
+                    chart.data.labels.shift();
+                    chart.data.datasets[0].data.shift();
+                }
+
+                chart.data.labels.push(this.time++);
+                chart.data.datasets[0].data.push(parseFloat(data));
+                chart.update();
+			});
+			
+			document.getElementById('average').textContent = obj.average;
+			document.getElementById('averageHour').textContent = obj.averageHour;
+		} 
+		
+		get_data();
+
+
+		function sendTemperature(){
+			var http = new XMLHttpRequest();
+            http.open('POST', 'http://localhost:3000/api/sendData', false);
+            http.send(null);
+		}
+
+        setInterval(() => {
+			sendTemperature();
+			get_data();
+        }, 1000);
+
+	</script>
+</body>
+
+</html>

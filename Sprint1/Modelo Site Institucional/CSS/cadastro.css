@@ -1,0 +1,223 @@
+* {
+    height: 100%;
+    width: 100%;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url('../imgs/background_institucional.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+h1{
+    position: absolute; 
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
+    color: white; 
+    font-size: 40px;
+}
+
+.fundo_Logo {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+    text-align: center;
+}
+
+#imgLogo {
+    height: 120px;
+    width: 120px;
+
+    transition: 1s;
+}
+
+.p_cadastro {
+    font-size: 24px;
+    color: white;
+}
+
+.containerCadastro {
+    position: absolute;
+
+    height: 340px;
+    width: 1000px;
+
+    top: 20%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    border: 1px solid;
+    border-color: white;
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+
+.primeiraParteCadastro{
+    height: 95%;
+    width: 49.5%;
+    float: left;
+
+    padding-top: 50px;
+
+    border-right: 1px solid;
+    border-color: white;
+}
+
+input{
+    height: 40px;
+    width: 420px;
+
+    margin-bottom: 5px;
+
+    border-radius: 5px;
+
+    font-size: 17px;
+
+    text-align: center;
+    outline: none;
+}
+
+#nomeCompleto{
+    height: 40px;
+    width: 420px;
+
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#cpf{
+    height: 40px;
+    width: 280px;
+
+    float: left;
+    margin-right: 17px;
+    margin-left: 36px;
+}
+
+.dataNasctoText{
+    position: absolute;
+
+    height: 8px;
+    width: auto;
+
+    top: 30%;
+    bottom: 0;
+    left: -20%;
+    right: 0;
+
+    color: white;
+
+    font-size: 12px;
+}
+
+#dataNascto{
+    height: 40px;
+    width: 120px;
+
+    float: left;
+    margin-right: 10px;
+    font-size: 11px;
+}
+
+#email{
+    height: 40px;
+    width: 420px;
+}
+
+#senha{
+    height: 40px;
+    width: 200px;
+
+    float: left;
+    margin-left: 36px;
+}
+
+#confirmSenha{
+    height: 40px;
+    width: 200px;
+
+    float: left;
+    margin-left: 15px;
+}
+
+.segundaParteCadastro{
+    height: 100%;
+    width: 50%;
+    float: left;
+
+    padding-top: 50px;
+}
+
+#bairro{
+    height: 40px;
+    width: 260px;
+
+    float: left;
+    margin-right: 30px;
+    margin-left: 38px;
+
+    margin-top: 15px;
+}
+
+#cep{
+    height: 40px;
+    width: 125px;
+
+    float: left;
+
+    margin-top: 15px;
+}
+
+#rua{
+    height: 40px;
+    width: 260px;
+
+    float: left;
+    margin-right: 30px;
+    margin-left: 38px;
+}
+
+#numero{
+    height: 40px;
+    width: 125px;
+
+    float: left;
+}
+
+#button_cadastro{
+    position: absolute;
+    height: 50px;
+    width: 113px;
+
+    top: 85%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    background-color: rgba(0, 0, 0, 0);
+    
+    font-size: 22px;
+    color: white;
+
+    border: 1px solid;
+    border-radius: 10px;
+}

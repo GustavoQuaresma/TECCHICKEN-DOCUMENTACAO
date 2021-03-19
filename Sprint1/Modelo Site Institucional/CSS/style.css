@@ -1,0 +1,216 @@
+* {
+    height: 100%;
+    width: 100%;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url('../imgs/background_institucional.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    transition: 2s;
+}
+
+nav {
+    position: absolute;
+    margin-top: 40px;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav_button {
+    margin-top: 20px;
+
+    height: 50px;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+    border: none;
+}
+
+.nav_button_equipe{
+    margin-top: 1px;
+    height: 50px;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+    border: none;
+}
+
+.nav_button:hover {
+    transition: 0.2s;
+    color: rgb(44, 83, 117);
+}
+
+#button_login {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+
+    height: 50px;
+    width: 60px;
+
+    background-color: rgba(0, 0, 0, 0);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 22px;
+
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.div_equipe{
+    display: inline-block;
+    border: 12px solid;
+    color: white;
+    width: 200px;
+    height: 200px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 170px;
+    
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fundo_Logo {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.820);
+    opacity: 0.8;
+    text-align: center;
+    transition: 0.5s;
+}
+
+#imgLogo {
+    height: 370px;
+    width: 370px;
+    margin-top: 200px;
+}
+
+.txtLocalizacao{
+    position: absolute;
+
+    height: 250px;
+    width: 250px;
+
+    top: 30%;
+    bottom: 0;
+    left: 130px;
+    right: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    color: white;
+}
+
+.sobreEmpresaLocalizacao{
+    position: absolute;
+
+    height: 250px;
+    width: 250px;
+
+    top: 38%;
+    bottom: 0;
+    left: 130px;
+    right: 0;
+
+    background-color: white;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.conteudoBubble{
+    width: 90%;
+    height: 110px;
+
+    margin-left: 10px;
+
+    color: black;
+
+    text-align: justify;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.sobreEmpresaMissao{
+    position: absolute;
+
+    height: 140px;
+    width: 300px;
+
+    top: 25%;
+    left: 71%;
+    right: 0;
+
+    background-color: white;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+
+    overflow: hidden;
+    border-radius: 10px;
+
+    transition: 0.5s;
+}
+
+.sobreEmpresaVisao{
+    position: absolute;
+
+    height: 140px;
+    width: 300px;
+
+    top: 47%;
+    left: 71%;
+    right: 0;
+
+    background-color: white;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+
+    overflow: hidden;
+    border-radius: 10px;
+
+    transition: 0.5s;
+}
+
+.sobreEmpresaValores{
+    position: absolute;
+
+    height: 160px;
+    width: 300px;
+
+    top: 69%;
+    left: 71%;
+    right: 0;
+
+    background-color: white;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+
+    overflow: hidden;
+    border-radius: 10px;
+
+    transition: 0.5s;
+}

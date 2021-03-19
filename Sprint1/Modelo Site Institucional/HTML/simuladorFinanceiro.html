@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="../imgs/logoBrancoEmpresa.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/simuladorFinanceiro.css">
+    <title>Simulador Financeiro Hephaestos</title>
+</head>
+<body>
+    
+    <div class="topo">
+        <a href="index.html"><img src="../imgs/logoBrancoEmpresa.png" alt="" class="logoHephaestos"></a>
+    </div>
+
+    <br>
+    <br>
+    <center><h1>Simulador Financeiro de produção</h1></center>    
+    <br>
+    <br>
+    <div class="conteudo">
+
+        <div class="package1">
+            <h3>Nome do produto</h3>
+            <input type="text" id="nomeProd" placeholder="Insira a nome do produto...">
+            <h3>Unidade do produto</h3>
+            <input type="text" id="unidadeProd" placeholder="Insira a unidade - kg/g/l/ml...">
+            <h3>Quantidade em estoque</h3>
+            <input type="text" id="qtdEstoqueProd" placeholder="Insira a quantidade em estoque...">
+        </div>
+        
+        <div class="package2">
+            <h3>Valor de produção por unidade</h3>
+            <input type="text" id="valorCompraProduto" placeholder="Insira o valor de produção...">
+        
+            <h3>Valor da venda por unidade</h3>
+            <input type="text" id="valorVendaProduto" placeholder="Insira o valor da venda...">
+            
+            <h3 style="color: rgb(190, 43, 43);">Percentual de falhas em produção</h3>
+            <input type="text" id="percentualPerdaProduto" placeholder="Insira o percentual de falhas em produção">
+        </div>
+        
+
+        <button id="analizar" onclick="Analise()">Simular análise de dados</button>
+    </div>    
+    <br>
+    <br>
+    <br>
+    <div class="contentAnalise" style="display: none;">
+        <br>
+
+        <img id="imgInvisivel" src="https://image.freepik.com/vetores-gratis/calculos-financeiros-processo-de-trabalho_169241-1047.jpg" alt="contas" style="display: none;">
+        <br>
+        <div id="resultAnalise" style="text-align: justify; padding: 10px;">
+            
+        </div>
+        <br>
+
+        <div id="nocoes"></div>
+
+        <div class="container">
+
+            <div id="precoCompra"></div>
+            <div id="precoVenda"></div>
+
+        </div>
+
+        <br>
+
+    </div>
+
+</body>
+</html>
+
+<script>
+
+    function Analise(){
+
+        document.querySelector('.contentAnalise').style.display = 'block';
+        imgInvisivel.style = "display: block; height: 80px; width: 80px; border-radius: 50%; margin-left: 47%;";
+
+        var qtd = Number(qtdEstoqueProd.value);
+        var unidade = unidadeProd.value;
+        var nome = nomeProd.value;
+        var perda = percentualPerdaProduto.value;
+
+        var valorC = Number(valorCompraProduto.value);
+        var valorV = Number(valorVendaProduto.value);
+
+        var percentualLucro = ((valorV-valorC)/valorV)*100;
+
+        resultAnalise.innerHTML = 
+        
+        ` - Você possui ${qtd}${unidade} de <span style="color: bluelight;">${nome}</span> em estoque;<br>`+
+        ` - Você tem um total de <span style="color: green;">R$${(valorV * qtd).toFixed(2)}</span> em estoque de <span style="color: bluelight;">${nome}</span>;<br>`+
+        ` - Vai lucrar <span style="color: green;">R$${(valorV - valorC).toFixed(2)}</span> em cada ${unidade} de <span style="color: bluelight;">${nome}</span> vendido(a).<br>`;
+
+        nocoes.innerHTML = `<h2> - Falhas que levam a perda de <span style="color: red;">${perda}%</span> do estoque, resultam num déficit de <span style="color: green;">R$${(((valorV * qtd)/100)*perda).toFixed(2)}</span> em sua carteira.</h2><br>`;
+        nocoes.innerHTML += `<h2> - Produzindo cada unidade por <span style="color: green;">R$${valorC.toFixed(2)}</span> e vendendo por <span style="color: green;">R$${valorV.toFixed(2)}</span>, sua margem de lucro será de <span style="color: cyan;">${percentualLucro.toFixed(1)}%</span>, o gráfico abaixo ilustra a relação <span style="color: red;">custo</span> e <span style="color: green;">preço de venda</span>:</h2>`;
+        
+        precoVenda.style = `height: 100%; width: ${percentualLucro}%; float: left; background-color: GREEN;`;
+        precoCompra.style = `height: 100%; width: ${100-percentualLucro}%; float: left; background-color: red;`;
+
+    }
+
+</script>

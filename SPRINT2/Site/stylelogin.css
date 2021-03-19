@@ -52,3 +52,16 @@ body {
     color: #ff5b15;
 
   }
+
+  .fundo {
+    position:absolute;
+    width: 30%;
+    height: 65%;
+    left: 35;
+    right: 35%;
+    top: 25%;
+    background: #8e0e7f;
+    border: 3px solid #000000;
+    box-sizing: border-box;
+    border-radius: 4%;
+    }

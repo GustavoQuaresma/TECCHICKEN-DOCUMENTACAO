@@ -65,3 +65,50 @@ body {
     box-sizing: border-box;
     border-radius: 4%;
     }
+
+  h1 {
+    font-weight: bold;
+    font-family: "Century Gothic";
+    text-transform: uppercase;    
+    margin-right: 40%;
+    margin-left: 40%;
+  }
+  .tituloemail{
+      font-family: Century Gothic;
+      font-size: 18px;
+      font-weight: bold;
+      margin-left: 10%;
+      margin-bottom: 2%;
+  }
+    .email {
+      font-size: 15px;
+      color: #333333;
+      border: 2px solid #000000;
+      width: 80%;
+      outline: none;
+      background: #ffffff;
+      margin-right: 10%;
+      margin-left: 10%;
+      height: 8%;
+      border-radius: 15px;
+    }
+
+    .titulosenha{
+      font-family: Century Gothic;
+      font-size: 18px;
+      font-weight: bold;
+      margin-left: 10%;
+      margin-bottom: 2%;
+  }
+    .senha {
+      font-size: 15px;
+      color: #333333;
+      border: 2px solid #000000;
+      width: 80%;
+      outline: none;
+      background: #ffffff;
+      margin-right: 10%;
+      margin-left: 10%;
+      height: 8%;
+      border-radius: 15px;
+    }

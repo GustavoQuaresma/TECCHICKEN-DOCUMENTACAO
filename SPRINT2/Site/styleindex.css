@@ -2,26 +2,22 @@
     margin: 0;
     padding: 0;
     border: 0;
-  }
-
-  .cabecalho {
-    padding-top: 0px;
-    background: #8e0e7f;
-    width: 100%;
-    height: 80px;
-    padding-bottom: 0px;
-    overflow: auto;
-    border-bottom: 3px solid #ff5b15 ;
+    background-image: url("fundo.jpeg") ;
+    background-repeat: no-repeat;
+    background-size: 100% ;
+    font-family: "Century Gothic";
   }
   
   .logo {
-    margin-left: 1%;
-    width: 15%;
-    height: 90%;
-    float: left;
+    margin-left: 40%;
+    margin-top: 8%;
+    width: 20%;
+    height: 100%;
+    align-content: center;
+  
   }
   
-  .cabecalho nav {
+   nav {
     float: right;
   }
   
@@ -33,7 +29,6 @@
   ul li {
     display: inline;
     margin-right: 25px;
-    font-family: "Century Gothic";
     text-transform: uppercase;    
   }
   ul li a {
@@ -51,3 +46,18 @@
     color: #ff5b15;
 
   }
+  .slogan {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3%;
+    text-transform: uppercase;  
+    font-size: 35px;
+  }
+.contato {
+  color: white;
+
+  margin-top: 7%;
+  text-align: center;
+  }
+  

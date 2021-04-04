@@ -1,0 +1,83 @@
+CREATE DATABASE TecChicken;
+USE TecChicken;
+
+CREATE TABLE Cliente (
+    -> idCliente int primary key auto_increment,
+    -> nomeCliente varchar(100) NOT NULL,
+    -> CPF char (11) UNIQUE,
+    -> telCelular varchar(15),
+    -> telComercial varchar(15),
+    -> email varchar (50) NOT NULL,
+    -> senha varchar (30) NOT NULL
+    -> );
+DESC Cliente;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| idCliente    | int          | NO   | PRI | NULL    | auto_increment |
+| nomeCliente  | varchar(100) | NO   |     | NULL    |                |
+| CPF          | char(11)     | YES  | UNI | NULL    |                |
+| telCelular   | varchar(15)  | YES  |     | NULL    |                |
+| telComercial | varchar(15)  | YES  |     | NULL    |                |
+| email        | varchar(50)  | NO   |     | NULL    |                |
+| senha        | varchar(30)  | NO   |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+
+CREATE TABLE Granja(
+    -> idGranja INT PRIMARY KEY AUTO_INCREMENT,
+    -> estado VARCHAR(25),
+    -> cidade VARCHAR(60),
+    -> logradouro VARCHAR(60),
+    -> complemento VARCHAR(30),
+    -> bairro VARCHAR(75),
+    -> fkCliente INT,
+    -> FOREIGN KEY (fkCliente) REFERENCES Cliente(idCliente)
+    -> ) AUTO_INCREMENT = 1000;
+
+DESC Granja;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| idGranja    | int         | NO   | PRI | NULL    | auto_increment |
+| estado      | varchar(25) | YES  |     | NULL    |                |
+| cidade      | varchar(60) | YES  |     | NULL    |                |
+| logradouro  | varchar(60) | YES  |     | NULL    |                |
+| complemento | varchar(30) | YES  |     | NULL    |                |
+| bairro      | varchar(75) | YES  |     | NULL    |                |
+| fkCliente   | int         | YES  | MUL | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+
+
+CREATE TABLE Sensor (
+    -> idSensor INT PRIMARY KEY AUTO_INCREMENT,
+    -> tipoSensor VARCHAR (10) DEFAULT 'LM35',
+    -> tipoAnimal VARCHAR(20),
+    -> CHECK (tipoAnimal = 'Pintinho' OR tipoAnimal = 'Galinha' OR tipoAnimal = 'Galinha de corte' OR tipoAnimal = 'Frango')
+    -> ) AUTO_INCREMENT = 10000;
+ALTER TABLE Sensor ADD COLUMN fkGranja INT;
+ALTER TABLE Sensor ADD FOREIGN KEY (fkGranja) REFERENCES Granja(idGranja);
+
+DESC Sensor;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| idSensor   | int         | NO   | PRI | NULL    | auto_increment |
+| tipoSensor | varchar(10) | YES  |     | LM35    |                |
+| tipoAnimal | varchar(20) | YES  |     | NULL    |                |
+| fkGranja   | int         | YES  | MUL | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+
+CREATE TABLE Captura (
+    -> fkSensor INT PRIMARY KEY,
+    -> FOREIGN KEY (fkSensor) references Sensor(idSensor),
+    -> temperatura DOUBLE DEFAULT 69,
+    -> diaTemp DATETIME DEFAULT CURRENT_TIMESTAMP
+    -> );
+DESC Captura;
++-------------+----------+------+-----+-------------------+-------------------+
+| Field       | Type     | Null | Key | Default           | Extra             |
++-------------+----------+------+-----+-------------------+-------------------+
+| fkSensor    | int      | NO   | PRI | NULL              |                   |
+| temperatura | double   | YES  |     | 69                |                   |
+| diaTemp     | datetime | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++-------------+----------+------+-----+-------------------+-------------------+

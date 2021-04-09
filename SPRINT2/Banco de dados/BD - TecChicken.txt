@@ -39,7 +39,7 @@ DESC Granja;
 | Field       | Type        | Null | Key | Default | Extra          |
 +-------------+-------------+------+-----+---------+----------------+
 | idGranja    | int         | NO   | PRI | NULL    | auto_increment |
-| estado      | varchar(25) | YES  |     | NULL    |                |
+| UF          | char(2)     | YES  |     | NULL    |                |
 | cidade      | varchar(60) | YES  |     | NULL    |                |
 | logradouro  | varchar(60) | YES  |     | NULL    |                |
 | complemento | varchar(30) | YES  |     | NULL    |                |

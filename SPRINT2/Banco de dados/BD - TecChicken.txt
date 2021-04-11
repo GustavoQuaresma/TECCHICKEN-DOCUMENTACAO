@@ -1,61 +1,95 @@
 CREATE DATABASE TecChicken;
 USE TecChicken;
 
-CREATE TABLE Cliente (
-    -> idCliente int primary key auto_increment,
-    -> nomeCliente varchar(100) NOT NULL,
-    -> CPF char (11) UNIQUE,
-    -> telCelular varchar(15),
-    -> telComercial varchar(15),
-    -> email varchar (50) NOT NULL,
-    -> senha varchar (30) NOT NULL
+----------------TABELA EMPRESA---------------
+
+CREATE TABLE Empresa(
+    -> idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+    -> CNPJ CHAR(14) UNIQUES,
+    -> nomeEmpresa VARCHAR(50),
+    -> telefone VARCHAR(45),
+    -> email VARCHAR(50)
     -> );
-DESC Cliente;
+
+DESC Empresa;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| idEmpresa   | int         | NO   | PRI | NULL    | auto_increment |
+| CNPJ        | char(14)    | YES  | UNI | NULL    |                |
+| nomeEmpresa | varchar(50) | YES  |     | NULL    |                |
+| telefone    | varchar(45) | YES  |     | NULL    |                |
+| email       | varchar(50) | YES  |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+
+
+------------------TABELA USUÁRIO-------------
+
+CREATE TABLE Usuario (
+    -> idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    -> nomeUsuario VARCHAR(100),
+    -> CPF CHAR(11) UNIQUE,
+    -> telCelular INT,
+    -> telComercial INT,
+    -> email VARCHAR(70),
+    -> senha VARCHAR(20),
+    -> fkEmpresa INT,
+    -> FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa)
+    -> ) AUTO_INCREMENT = 1000;
+
+DESC Usuario;
 +--------------+--------------+------+-----+---------+----------------+
 | Field        | Type         | Null | Key | Default | Extra          |
 +--------------+--------------+------+-----+---------+----------------+
-| idCliente    | int          | NO   | PRI | NULL    | auto_increment |
-| nomeCliente  | varchar(100) | NO   |     | NULL    |                |
+| idUsuario    | int          | NO   | PRI | NULL    | auto_increment |
+| nomeUsuario  | varchar(100) | YES  |     | NULL    |                |
 | CPF          | char(11)     | YES  | UNI | NULL    |                |
-| telCelular   | varchar(15)  | YES  |     | NULL    |                |
-| telComercial | varchar(15)  | YES  |     | NULL    |                |
-| email        | varchar(50)  | NO   |     | NULL    |                |
-| senha        | varchar(30)  | NO   |     | NULL    |                |
+| telCelular   | int          | YES  |     | NULL    |                |
+| telComercial | int          | YES  |     | NULL    |                |
+| email        | varchar(70)  | YES  |     | NULL    |                |
+| senha        | varchar(20)  | YES  |     | NULL    |                |
+| fkEmpresa    | int          | YES  | MUL | NULL    |                |
 +--------------+--------------+------+-----+---------+----------------+
 
-CREATE TABLE Granja(
+
+------------------TABELA GRANJA---------------
+
+CREATE TABLE Granja (
     -> idGranja INT PRIMARY KEY AUTO_INCREMENT,
-    -> estado VARCHAR(25),
+    -> CEP CHAR(8),
+    -> UF CHAR(2),
     -> cidade VARCHAR(60),
     -> logradouro VARCHAR(60),
     -> complemento VARCHAR(30),
     -> bairro VARCHAR(75),
-    -> fkCliente INT,
-    -> FOREIGN KEY (fkCliente) REFERENCES Cliente(idCliente)
-    -> ) AUTO_INCREMENT = 1000;
+    -> fkEmpresa INT,
+    -> FOREIGN KEY(fkEmpresa) REFERENCES Empresa(idEmpresa)
+    -> ) AUTO_INCREMENT = 7000;
 
-DESC Granja;
+ DESC Granja;
 +-------------+-------------+------+-----+---------+----------------+
 | Field       | Type        | Null | Key | Default | Extra          |
 +-------------+-------------+------+-----+---------+----------------+
 | idGranja    | int         | NO   | PRI | NULL    | auto_increment |
+| CEP         | char(8)     | YES  |     | NULL    |                |
 | UF          | char(2)     | YES  |     | NULL    |                |
 | cidade      | varchar(60) | YES  |     | NULL    |                |
 | logradouro  | varchar(60) | YES  |     | NULL    |                |
 | complemento | varchar(30) | YES  |     | NULL    |                |
 | bairro      | varchar(75) | YES  |     | NULL    |                |
-| fkCliente   | int         | YES  | MUL | NULL    |                |
+| fkEmpresa   | int         | YES  | MUL | NULL    |                |
 +-------------+-------------+------+-----+---------+----------------+
 
 
+------------------TABELA SENSOR----------------
+
 CREATE TABLE Sensor (
     -> idSensor INT PRIMARY KEY AUTO_INCREMENT,
-    -> tipoSensor VARCHAR (10) DEFAULT 'LM35',
-    -> tipoAnimal VARCHAR(20),
-    -> CHECK (tipoAnimal = 'Pintinho' OR tipoAnimal = 'Galinha' OR tipoAnimal = 'Galinha de corte' OR tipoAnimal = 'Frango')
-    -> ) AUTO_INCREMENT = 10000;
-ALTER TABLE Sensor ADD COLUMN fkGranja INT;
-ALTER TABLE Sensor ADD FOREIGN KEY (fkGranja) REFERENCES Granja(idGranja);
+    -> tipoSensor VARCHAR(10) DEFAULT 'LM35',
+    -> local VARCHAR (30),
+    -> fkGranja INT,
+    -> FOREIGN KEY(fkGranja) REFERENCES Granja(idGranja)
+    -> ) AUTO_INCREMENT = 12000;
 
 DESC Sensor;
 +------------+-------------+------+-----+---------+----------------+
@@ -63,21 +97,28 @@ DESC Sensor;
 +------------+-------------+------+-----+---------+----------------+
 | idSensor   | int         | NO   | PRI | NULL    | auto_increment |
 | tipoSensor | varchar(10) | YES  |     | LM35    |                |
-| tipoAnimal | varchar(20) | YES  |     | NULL    |                |
+| local      | varchar(30) | YES  |     | NULL    |                |
 | fkGranja   | int         | YES  | MUL | NULL    |                |
 +------------+-------------+------+-----+---------+----------------+
 
+
+------------------TABELA CAPTURA----------------
+
 CREATE TABLE Captura (
-    -> fkSensor INT PRIMARY KEY,
-    -> FOREIGN KEY (fkSensor) references Sensor(idSensor),
-    -> temperatura DOUBLE DEFAULT 69,
-    -> diaTemp DATETIME DEFAULT CURRENT_TIMESTAMP
+    -> idCaptura INT AUTO_INCREMENT,
+    -> fkSensor INT,
+    -> FOREIGN KEY(fkSensor) REFERENCES Sensor(idSensor),
+    -> temperatura DOUBLE DEFAULT '999',
+    -> momentoCaptura DATETIME,
+    -> PRIMARY KEY (idCaptura, fkSensor)
     -> );
+
 DESC Captura;
-+-------------+----------+------+-----+-------------------+-------------------+
-| Field       | Type     | Null | Key | Default           | Extra             |
-+-------------+----------+------+-----+-------------------+-------------------+
-| fkSensor    | int      | NO   | PRI | NULL              |                   |
-| temperatura | double   | YES  |     | 69                |                   |
-| diaTemp     | datetime | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
-+-------------+----------+------+-----+-------------------+-------------------+
++----------------+----------+------+-----+---------+----------------+
+| Field          | Type     | Null | Key | Default | Extra          |
++----------------+----------+------+-----+---------+----------------+
+| idCaptura      | int      | NO   | PRI | NULL    | auto_increment |
+| fkSensor       | int      | NO   | PRI | NULL    |                |
+| temperatura    | double   | YES  |     | 999     |                |
+| momentoCaptura | datetime | YES  |     | NULL    |                |
++----------------+----------+------+-----+---------+----------------+

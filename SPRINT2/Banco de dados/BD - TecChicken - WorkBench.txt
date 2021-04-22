@@ -10,7 +10,7 @@ SELECT user FROM mysql.user;
 
 CREATE TABLE Empresa(
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
-    CNPJ CHAR(14) UNIQUES,
+    CNPJ CHAR(14) UNIQUE,
     nomeEmpresa VARCHAR(50),
     telefone VARCHAR(15),
     email VARCHAR(50)
@@ -93,17 +93,17 @@ INSERT INTO Sensor (local, fkGranja) VALUES
 
 
 INSERT INTO Captura (fkSensor, temperatura) VALUES
-    -> (12000, 28.2),
-    -> (12000, 29.3),
-    -> (12000, 27.3),
-    -> (12001, 17.2),
-    -> (12001, 12.5),
-    -> (12001, 16.0),
-    -> (12002, 6.3),
-    -> (12002, 10.3),
-    -> (12002, 12.1),
-    -> (12003, 32.9),
-    -> (12003, 32.4),
-    -> (12003, 31.4);
+     (12000, 28.2),
+     (12000, 29.3),
+     (12000, 27.3),
+     (12001, 17.2),
+     (12001, 12.5),
+     (12001, 16.0),
+     (12002, 6.3),
+     (12002, 10.3),
+     (12002, 12.1),
+     (12003, 32.9),
+     (12003, 32.4),
+     (12003, 31.4);
 
 

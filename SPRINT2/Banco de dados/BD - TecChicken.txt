@@ -1,6 +1,22 @@
 CREATE DATABASE TecChicken;
 USE TecChicken;
 
+CREATE USER 'Consultor'@'localhost'
+    -> IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON '.' TO 'Consultor'@'localhost';
+FLUSH PRIVILEGES;
+SELECT user FROM mysql.user;
++------------------+
+| user             |
++------------------+
+| Aluno            |
+| Consultor        |
+| mysql.infoschema |
+| mysql.session    |
+| mysql.sys        |
+| root             |
++------------------+
+
 ----------------TABELA EMPRESA---------------
 
 CREATE TABLE Empresa(

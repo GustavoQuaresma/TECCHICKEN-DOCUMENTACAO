@@ -12,7 +12,7 @@ CREATE TABLE Empresa(
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     CNPJ CHAR(14) UNIQUES,
     nomeEmpresa VARCHAR(50),
-    telefone VARCHAR(45),
+    telefone VARCHAR(15),
     email VARCHAR(50)
      );
 

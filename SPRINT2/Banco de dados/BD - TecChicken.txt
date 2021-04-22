@@ -23,7 +23,7 @@ CREATE TABLE Empresa(
     -> idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     -> CNPJ CHAR(14) UNIQUES,
     -> nomeEmpresa VARCHAR(50),
-    -> telefone VARCHAR(45),
+    -> telefone VARCHAR(15),
     -> email VARCHAR(50)
     -> );
 
@@ -34,7 +34,7 @@ DESC Empresa;
 | idEmpresa   | int         | NO   | PRI | NULL    | auto_increment |
 | CNPJ        | char(14)    | YES  | UNI | NULL    |                |
 | nomeEmpresa | varchar(50) | YES  |     | NULL    |                |
-| telefone    | varchar(45) | YES  |     | NULL    |                |
+| telefone    | varchar(15) | YES  |     | NULL    |                |
 | email       | varchar(50) | YES  |     | NULL    |                |
 +-------------+-------------+------+-----+---------+----------------+
 

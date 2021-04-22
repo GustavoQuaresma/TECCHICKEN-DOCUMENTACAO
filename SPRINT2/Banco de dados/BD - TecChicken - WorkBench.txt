@@ -1,0 +1,65 @@
+CREATE DATABASE TecChicken;
+USE TecChicken;
+
+CREATE USER 'Consultor'@'localhost'
+    IDENTIFIED BY '123';
+GRANT ALL PRIVILEGES ON '.' TO 'Consultor'@'localhost';
+FLUSH PRIVILEGES;
+SELECT user FROM mysql.user;
+
+
+CREATE TABLE Empresa(
+    idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+    CNPJ CHAR(14) UNIQUES,
+    nomeEmpresa VARCHAR(50),
+    telefone VARCHAR(45),
+    email VARCHAR(50)
+     );
+
+
+CREATE TABLE Usuario (
+     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+     nomeUsuario VARCHAR(100),
+     CPF CHAR(11) UNIQUE,
+     telCelular INT,
+     telComercial INT,
+     email VARCHAR(70),
+     senha VARCHAR(20),
+     fkEmpresa INT,
+     FOREIGN KEY (fkEmpresa) REFERENCES Empresa(idEmpresa)
+     ) AUTO_INCREMENT = 1000;
+
+
+
+CREATE TABLE Granja (
+     idGranja INT PRIMARY KEY AUTO_INCREMENT,
+     CEP CHAR(8),
+     UF CHAR(2),
+     cidade VARCHAR(60),
+     logradouro VARCHAR(60),
+     complemento VARCHAR(30),
+     bairro VARCHAR(75),
+     fkEmpresa INT,
+     FOREIGN KEY(fkEmpresa) REFERENCES Empresa(idEmpresa)
+     ) AUTO_INCREMENT = 7000;
+
+
+
+CREATE TABLE Sensor (
+     idSensor INT PRIMARY KEY AUTO_INCREMENT,
+     tipoSensor VARCHAR(10) DEFAULT 'LM35',
+     local VARCHAR (30),
+     fkGranja INT,
+     FOREIGN KEY(fkGranja) REFERENCES Granja(idGranja)
+     ) AUTO_INCREMENT = 12000;
+
+
+
+CREATE TABLE Captura (
+     idCaptura INT AUTO_INCREMENT,
+     fkSensor INT,
+     FOREIGN KEY(fkSensor) REFERENCES Sensor(idSensor),
+     temperatura DOUBLE DEFAULT '999',
+     momentoCaptura DATETIME,
+     PRIMARY KEY (idCaptura, fkSensor)
+     );

@@ -1,9 +1,10 @@
 CREATE DATABASE TecChicken;
 USE TecChicken;
 
+
 CREATE USER 'Consultor'@'localhost'
-    IDENTIFIED BY '123';
-GRANT ALL PRIVILEGES ON '.' TO 'Consultor'@'localhost';
+IDENTIFIED BY '123';
+-- GRANT ALL PRIVILEGES ON '.' TO 'Consultor'@'localhost';
 FLUSH PRIVILEGES;
 SELECT user FROM mysql.user;
 
@@ -106,4 +107,10 @@ INSERT INTO Captura (fkSensor, temperatura) VALUES
      (12003, 32.4),
      (12003, 31.4);
 
+
+select * from Empresa;
+select * from Usuario;
+select * from Granja;
+select * from Sensor;
+select * from Captura;
 

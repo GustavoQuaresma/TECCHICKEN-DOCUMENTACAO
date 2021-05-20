@@ -1,10 +1,9 @@
 CREATE DATABASE TecChicken;
 USE TecChicken;
 
-
 CREATE USER 'Consultor'@'localhost'
 IDENTIFIED BY '123';
--- GRANT ALL PRIVILEGES ON '.' TO 'Consultor'@'localhost';
+-- GRANT ALL PRIVILEGES ON '.' TO 'Consultor'@'localhost'
 FLUSH PRIVILEGES;
 SELECT user FROM mysql.user;
 
@@ -21,9 +20,6 @@ CREATE TABLE Empresa(
 CREATE TABLE Usuario (
      idUsuario INT PRIMARY KEY AUTO_INCREMENT,
      nomeUsuario VARCHAR(100),
-     CPF CHAR(11) UNIQUE,
-     telCelular VARCHAR(15),
-     telComercial VARCHAR(15),
      email VARCHAR(70),
      senha VARCHAR(20),
      fkEmpresa INT,
@@ -47,7 +43,7 @@ CREATE TABLE Granja (
 CREATE TABLE Sensor (
      idSensor INT PRIMARY KEY AUTO_INCREMENT,
      tipoSensor VARCHAR(10) DEFAULT 'LM35',
-     local VARCHAR (30),
+     local VARCHAR (30) DEFAULT 'Sensor padrão',
      fkGranja INT,
      FOREIGN KEY(fkGranja) REFERENCES Granja(idGranja)
      ) AUTO_INCREMENT = 12000;
@@ -69,15 +65,15 @@ INSERT INTO Empresa (CNPJ, nomeEmpresa, telefone, email) VALUES
      ('22354119000103', 'Los Pollos primos','11960723657' , 'BreakingBadebom@lpp.com.br'); 
 
 
-INSERT INTO Usuario (nomeUsuario, CPF, telCelular, telComercial, email, senha, fkempresa) VALUES
-     ('Otávio da Silva', '82627044010', '11945100709', NULL, 'otavio.silva@popayos.com.br', 'renan&pedro', 1),
-     ('Cintia Oliveira', '17817306010', '11910648795', NULL, 'cintia.oliveira@popayos.com.br','gatoamarelo', 1),
-     ('Guilherme Henrique','53331480070', '11901326871', NULL, 'guilherme.silva@popayos.com.br', '1234', 1),
-     ('Paulo  Antunes', '52296000126', '11900394815', '1156789097', 'paulo.antunes@thc.com.br', 'oculosverdâ', 2),
-     ('Sonia Andrade', '42337814990', '11975564389', NULL, 'sonia.andrade@thc.com.br', '250682', 2),
-     ('Gertrudio Amaranto', '29098338280', '11978933928', '1187909041', 'gerruidio.amaranto@thc.com.br', 'tiaverinha', 2),
-     ('Maria Rodrigues', '10478528390', '11978544892', '1180905627', 'maria.rodrigues@lpp.com.br', '23542m', 3),
-     ('Priscila Barros', '12478929390', '11968908923', NULL, 'priscila.barros@lpp.com', 'senhadificil', 3);
+INSERT INTO Usuario (nomeUsuario, email, senha, fkempresa) VALUES
+     ('Otávio da Silva', 'otavio.silva@popayos.com.br', 'renan&pedro', 1),
+     ('Cintia Oliveira', 'cintia.oliveira@popayos.com.br','gatoamarelo', 1),
+     ('Guilherme Henrique', 'guilherme.silva@popayos.com.br', '1234', 1),
+     ('Paulo  Antunes', 'paulo.antunes@thc.com.br', 'oculosverdâ', 2),
+     ('Sonia Andrade', 'sonia.andrade@thc.com.br', '250682', 2),
+     ('Gertrudio Amaranto', 'gerruidio.amaranto@thc.com.br', 'tiaverinha', 2),
+     ('Maria Rodrigues', 'maria.rodrigues@lpp.com.br', '23542m', 3),
+     ('Priscila Barros', 'priscila.barros@lpp.com', 'senhadificil', 3);
 
 
 INSERT INTO Granja (CEP, UF, cidade, logradouro, numero, bairro, fkEmpresa) VALUES
@@ -107,10 +103,4 @@ INSERT INTO Captura (fkSensor, temperatura) VALUES
      (12003, 32.4),
      (12003, 31.4);
 
-
-select * from Empresa;
-select * from Usuario;
-select * from Granja;
-select * from Sensor;
-select * from Captura;
 

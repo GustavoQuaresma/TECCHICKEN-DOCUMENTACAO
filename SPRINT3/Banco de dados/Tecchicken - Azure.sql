@@ -12,6 +12,7 @@ CREATE TABLE usuario(
     email VARCHAR(70),
     senha VARCHAR(20),
     fkEmpresa INT,
+    tipoUsuario TINYINT DEFAULT 0,
     PRIMARY KEY (idUsuario),
     FOREIGN KEY(fkEmpresa) REFERENCES Empresa(idEmpresa)
 );

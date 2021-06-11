@@ -5,7 +5,7 @@ USE TecChicken;
 -- IDENTIFIED BY '123';
 -- GRANT ALL PRIVILEGES ON '.' TO 'Consultor'@'localhost';
 -- FLUSH PRIVILEGES;
--- SELECT user FROM mysql.user;
+SELECT user FROM mysql.user;
 
 
 CREATE TABLE Empresa(
@@ -43,17 +43,18 @@ CREATE TABLE Granja (
 CREATE TABLE Sensor (
      idSensor INT PRIMARY KEY AUTO_INCREMENT,
      tipoSensor VARCHAR(10) DEFAULT 'LM35',
-     local VARCHAR (30) DEFAULT 'Sensor padrão',
+     localSensor VARCHAR (30) DEFAULT 'Sensor padrão',
      fkGranja INT,
      FOREIGN KEY(fkGranja) REFERENCES Granja(idGranja)
      ) AUTO_INCREMENT = 12000;
+
 
 
 CREATE TABLE Captura (
      idCaptura INT AUTO_INCREMENT,
      fkSensor INT,
      FOREIGN KEY(fkSensor) REFERENCES Sensor(idSensor),
-     temperatura DOUBLE DEFAULT '999',
+     temperatura DECIMAL DEFAULT '999',
      momentoCaptura DATETIME DEFAULT CURRENT_TIMESTAMP,
      PRIMARY KEY (idCaptura, fkSensor)
      );
@@ -82,7 +83,7 @@ INSERT INTO Granja (CEP, UF, cidade, logradouro, numero, bairro, fkEmpresa) VALU
      ('06387000', 'SP', 'Carapicuíba', 'Rua Farão', '29', 'Parque Sampaio Viana', 3);
 
 
-INSERT INTO Sensor (local, fkGranja) VALUES
+INSERT INTO Sensor (localSensor, fkGranja) VALUES
      ('Isa Brown', 7000),
      ('Bovans White', 7000),
      ('Centro granja', 7001),
@@ -102,5 +103,13 @@ INSERT INTO Captura (fkSensor, temperatura) VALUES
      (12003, 32.9),
      (12003, 32.4),
      (12003, 31.4);
+
+select * from Usuario;
+select * from captura;
+select * from granja;
+
+ALTER TABLE captura MODIFY temperatura decimal(10,0);
+
+
 
 

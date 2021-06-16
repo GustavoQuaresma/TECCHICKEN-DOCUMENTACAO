@@ -87,7 +87,15 @@ INSERT INTO Sensor (localSensor, fkGranja) VALUES
      ('Isa Brown', 7000),
      ('Bovans White', 7000),
      ('Centro granja', 7001),
-     ('Bovans & Isa', 7002);
+     ('Bovans & Isa', 7002),
+     ('Granja central', 7000),
+     ('Intermediária', 7000),
+     ('Only Bovans', 7001),
+     ('Only browns', 7001),
+     ('Galinhas mistas', 7001),
+     ('Galpão menor', 7002),
+     ('Galpão maior', 7002),
+     ('Perto do lago', 7002);
 
 
 INSERT INTO Captura (fkSensor, temperatura) VALUES
@@ -104,11 +112,22 @@ INSERT INTO Captura (fkSensor, temperatura) VALUES
      (12003, 32.4),
      (12003, 31.4);
 
-select * from Usuario;
-select * from captura;
-select * from granja;
+SELECT * FROM Usuario;
+SELECT * FROM Captura;
+SELECT * FROM Granja;
+SELECT * FROM Empresa;
 
-ALTER TABLE captura MODIFY temperatura decimal(10,0);
+UPDATE empresa SET pagante = 1;
+
+SELECT 
+    idSensor FROM sensor
+	JOIN granja
+	ON fkGranja = idGranja
+	JOIN empresa
+	ON idEmpresa = fkEmpresa
+	WHERE idEmpresa = 1
+    ORDER BY sensor.idSensor DESC
+
 
 
 

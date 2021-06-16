@@ -88,6 +88,10 @@ SELECT * FROM captura;
 SELECT * FROM usuario;
 SELECT * FROM granja;
 SELECT * FROM empresa;
+
+SELECT AVG(temperatura) AS media FROM captura WHERE fkSensor = 12000 AND GETDATE() > 1;
+SELECT GETDATE()-1;
+
 DELETE FROM usuario WHERE idUsuario = 1008;
 
 DELETE FROM granja WHERE idGranja = 7003;
